@@ -13,11 +13,8 @@ Animal::Animal(){
     this->predator = false;
 }
 
-Animal::Animal(std::string name, bool domestic, bool predator){
-    this->name = name;
-    this->domestic = domestic;
-    this->predator = predator;
-}
+Animal::Animal(std::string name, bool domestic, bool predator)
+: name(name), domestic(domestic), predator(predator){}
 
 std::string Animal::getName() const {
     return this->name;
