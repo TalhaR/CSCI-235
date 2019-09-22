@@ -14,7 +14,6 @@
 template<class T>
 class ArrayBag
 {
-
 public:
     /** default constructor**/
 	ArrayBag();
@@ -87,20 +86,17 @@ public:
      **/
     std::vector<T> toVector() const;
       
-    
 protected:
     static const int DEFAULT_CAPACITY = 200;  //max size of items_
     T items_[DEFAULT_CAPACITY];              // Array of bag items
     int item_count_;                         // Current count of bag items
     
-   
     /**
      @param target to be found in items_
      @return either the index target in the array items_ or -1,
      if the array does not containthe target.
      **/
     int getIndexOf(const T& target) const;
-    
     
 }; // end ArrayBag
 
