@@ -1,6 +1,6 @@
 // Name: Talha Rahman
 // Course: CSCI-235     Professor Ligorio
-// Project 2
+// Project 3
 
 // This is the header file for the Animal Class
 #pragma once
@@ -23,4 +23,9 @@ class Animal{
         void setName(std::string name);
         void setDomestic();
         void setPredator();  
+
+        /**@post displays animal data in the form:
+         * "animal_name is [not] domestic and [it is / is not] a predator\n"
+         */
+        void display();
 };

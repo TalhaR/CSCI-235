@@ -1,6 +1,6 @@
 // Name: Talha Rahman
 // Course: CSCI-235     Professor Ligorio
-// Project 2
+// Project 3
 
 // This is the header file for the Fish Class
 #pragma once

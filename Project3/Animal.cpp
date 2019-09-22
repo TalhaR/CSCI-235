@@ -1,6 +1,6 @@
 // Name: Talha Rahman
 // Course: CSCI-235     Professor Ligorio
-// Project 2
+// Project 3
 
 // This is the implementation of the Animal class
 #include "Animal.hpp" 
@@ -34,4 +34,8 @@ void Animal::setDomestic(){ // sets Animal as Domesticated
 }
 void Animal::setPredator(){ // sets Aniaml as a Predator 
     this->predator = true;
+}
+
+void Animal::display(){
+    
 }

@@ -1,6 +1,6 @@
 // Name: Talha Rahman
 // Course: CSCI-235     Professor Ligorio
-// Project 2
+// Project 3
 
 // This is the implementation of the Fish class
 #include "Fish.hpp"
