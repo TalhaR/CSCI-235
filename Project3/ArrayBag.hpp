@@ -18,7 +18,35 @@ class ArrayBag
 public:
     /** default constructor**/
 	ArrayBag();
-    
+
+    /**@post prints the contents of items_ to the standard output
+     * separated by commas and followed by a new line.**/
+    void display() const;
+
+    /** implements Set Union
+     * The union of two sets A and B is the set of elements which are in A,
+     * in B, or in both A and B.
+     * @param a_bag to be combined with the contents of this (the calling) bag
+     * @post adds as many items from a_bag as space allows
+     */
+    void operator+=(const ArrayBag<T>& a_bag);
+
+    /** implements Set Difference
+     * The (set) difference between two sets A and B is the set that 
+     * consists of the elements of A which are not elements of B
+     * @param a_bag to be subtracted from this (the calling) bag
+     * @post removes all data from items_ that is also found in a_bag
+     */
+    void operator-=(const ArrayBag<T>& a_bag);
+
+    /** implements Set Intersection
+     * The intersection of two sets A and B is the set that 
+     * consists of the elements that are in both A and B
+     * @param a_bag to be intersected with this (the calling) bag
+     * @post items_ no longer contains data not found in a_bag
+     */
+    void operator/=(const ArrayBag<T>& a_bag);
+
     /**
      @return item_count_ : the current size of the bag
     **/
@@ -58,9 +86,7 @@ public:
      @return a vector having the same cotntents as items_
      **/
     std::vector<T> toVector() const;
-    
-    
-    
+      
     
 protected:
     static const int DEFAULT_CAPACITY = 200;  //max size of items_
