@@ -50,3 +50,12 @@ void Animal::display(){
     }
     std::cout << "a predator\n";
 }
+
+bool Animal::operator==(const Animal a) const {
+    if (this->getName() == a.getName()
+    && this->isDomestic() == a.isDomestic()
+    && this->isPredator() == a.isPredator()) {
+        return true;
+    }
+    return false;
+}
