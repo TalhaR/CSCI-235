@@ -4,6 +4,7 @@
 
 // This is the implementation of the Animal class
 #include "Animal.hpp" 
+#include <iostream>
 
 Animal::Animal(){
     // giving the object default values to make sure no errors 
@@ -37,5 +38,15 @@ void Animal::setPredator(){ // sets Aniaml as a Predator
 }
 
 void Animal::display(){
-    
+    std::cout << this->getName();
+    if (this->isDomestic()){
+        std::cout << " is domestic";
+    } else {
+        std::cout << " is not domestic";
+    }
+    std::cout << " and it is ";
+    if (!this->isPredator()){
+        std::cout << "not ";
+    }
+    std::cout << "a predator\n";
 }

@@ -7,7 +7,7 @@
 #include "ArrayBag.hpp"
 
 template<class T>
-class ZooRecord : public ArrayBag {
+class ZooRecord : public ArrayBag<T> {
 public:
     ZooRecord() = default;
     /** pre the input file is expected to be in CSV
@@ -18,6 +18,10 @@ public:
      * @post adds Animal objects to record as per the data in the input file
      */
     ZooRecord(std::string input_file_name);
+
+    /**@post displays all animals in record, one per line by calling
+     * animal's display method*/
+    void display();
 
 };
 

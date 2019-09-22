@@ -28,4 +28,6 @@ class Animal{
          * "animal_name is [not] domestic and [it is / is not] a predator\n"
          */
         void display();
+
+        bool operator==(const Animal a) const;
 };
