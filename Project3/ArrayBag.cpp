@@ -24,7 +24,8 @@ void ArrayBag<T>::display() const {
 
    // iterates through the arraybag starting from 0
    // working up to the item_count_ and prints out 
-   // to std::cout and will add "\n" at the end 
+   // to std::cout each element in the arraybag 
+   // and will add "\n" at the end 
    for (int i = 0; i < item_count_; i++){
       if (i == item_count_-1) {
          std::cout << items_[i] << "\n"; 
@@ -48,7 +49,7 @@ void ArrayBag<T>::operator+=(const ArrayBag<T>& a_bag){
 
 template<class T>
 void ArrayBag<T>::operator-=(const ArrayBag<T>& a_bag){
-   // Nearly identical to += but removal instead.
+   // Nearly identical to += but removal instead of addition
 
    // converting a_bag to a vector to allow for easy
    // iteration through. Upon iteration with an enhanced
@@ -65,7 +66,7 @@ void ArrayBag<T>::operator/=(const ArrayBag<T>& a_bag){
    // converts the original ArrayBag to a vector 
    // this allows easy iteration through the bag. 
    // iterating through the vector, it checks if 
-   // that elemenet exists in the a_bag, if it does
+   // that element exists in the a_bag, if it does
    // not then it will remove it from the original 
    // ArrayBag. 
    std::vector<T> temp = this->toVector();

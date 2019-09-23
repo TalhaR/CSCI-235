@@ -20,9 +20,11 @@ Animal::Animal(std::string name, bool domestic, bool predator)
 std::string Animal::getName() const {
     return name;
 }
+
 bool Animal::isDomestic() const{
     return domestic;
 }
+
 bool Animal::isPredator() const{
     return predator;
 }
@@ -30,30 +32,36 @@ bool Animal::isPredator() const{
 void Animal::setName(std::string name){
     this->name = name;
 }
+
 void Animal::setDomestic(){ // sets Animal as Domesticated 
     this->domestic = true;
 }
+
 void Animal::setPredator(){ // sets Aniaml as a Predator 
     this->predator = true;
 }
 
 void Animal::display(){
-    // will print out the name, 
+    // will print out the name of the Animal, 
     // domestication status and if
-    // the animal is a predator or not
+    // the Animal is a predator or not
     std::cout << this->getName();
     if (this->isDomestic()){
-        std::cout << " is domestic";
+        std::cout << " is domestic and ";
     } else {
-        std::cout << " is not domestic";
+        std::cout << " is not domestic and ";
     }
-    std::cout << " and it is ";
-    if (!this->isPredator()){
-        std::cout << "not ";
+    if (this->isPredator()){
+        std::cout << "it is ";
+    } else {
+        std::cout << "is not ";
     }
-    std::cout << "a predator\n";
+    std::cout << "a predator.\n";
 }
 
+/**
+ @return true if both Animal objects are the "same" else returns false
+ **/
 bool Animal::operator==(const Animal a) const {
     // checks if both objects have the same name
     // and the same status in relation to being 

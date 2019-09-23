@@ -16,7 +16,6 @@ ZooRecord::ZooRecord(std::string input_file_name){
     if(infile.good()){
         std::string name, line, s, temp;
         bool predator, domestic;
-        int class_type;
 
         // get rid of first line because it's not relevant
         getline(infile, temp);
@@ -24,12 +23,16 @@ ZooRecord::ZooRecord(std::string input_file_name){
         while(getline(infile, line)){
             // using stringstream to process each word of an individual line
             std::stringstream s(line);
-            int count = 0;
+            // using count to keep track of input #
+            // since there should only be 18 inputs per line
+            int count = 0; 
         
+            // stores each word/number from the stringstream
+            // into a temp string value
             while(getline(s, temp, ',')){
-                // first word is the name of the animal
+                // first word/input is the name of the animal
                 if (count == 0) name = temp;
-                // eight input is whether the animal is a predator or not
+                // eighth input is whether the animal is a predator or not
                 if (count == 7) {
                     if (temp == "1") {
                         predator = true;
@@ -68,6 +71,9 @@ void ZooRecord::display() {
     // what their name is along with if they're a 
     // predator or domesticated.
     for (int i = 0; i < this->item_count_; i++){
+        // calling the display method of the Animal class
+        // for each individual Animal in the ZooRecord
+        // that method handles the printing of output
         this->items_[i].display();
     }
 }
