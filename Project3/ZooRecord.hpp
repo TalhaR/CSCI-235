@@ -22,6 +22,5 @@ public:
     /**@post displays all animals in record, one per line by calling
      * animal's display method*/
     void display();
-
 };
 #include "ZooRecord.cpp"
