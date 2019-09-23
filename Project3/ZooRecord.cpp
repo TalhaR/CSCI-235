@@ -7,8 +7,7 @@
 #include <fstream>
 #include <sstream>
 
-template<class T>
-ZooRecord<T>::ZooRecord(std::string input_file_name){
+ZooRecord::ZooRecord(std::string input_file_name){
     // creates the inputfile stream based on the path passed into function
     std::ifstream infile;
     infile.open(input_file_name);
@@ -50,7 +49,7 @@ ZooRecord<T>::ZooRecord(std::string input_file_name){
             }
             // creates an object and adds to the ZooRecord
             // based on the information gathered from the CSV.file
-            this->add(T(name, domestic, predator));
+            this->add(Animal(name, domestic, predator));
         }
     } else {
         std::cout << "Cannot open file\n";
@@ -58,8 +57,7 @@ ZooRecord<T>::ZooRecord(std::string input_file_name){
     infile.close();
 }
 
-template<class T>
-void ZooRecord<T>::display() {
+void ZooRecord::display() {
     // if the ZooRecord is empty there is nothing to display
     // so it's best to just leave the method
     if (this->isEmpty()) return;

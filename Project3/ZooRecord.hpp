@@ -5,9 +5,9 @@
 // This is the header file for the ZooRecord class
 #pragma once
 #include "ArrayBag.hpp"
+#include "Animal.hpp"
 
-template<class T>
-class ZooRecord : public ArrayBag<T> {
+class ZooRecord : public ArrayBag<Animal> {
 public:
     ZooRecord() = default;
     /** pre the input file is expected to be in CSV
@@ -23,4 +23,3 @@ public:
      * animal's display method*/
     void display();
 };
-#include "ZooRecord.cpp"
