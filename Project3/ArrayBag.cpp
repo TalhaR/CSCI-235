@@ -194,9 +194,6 @@ std::vector<T> ArrayBag<T>::toVector() const
 }  // end toVector
 
 
-
-
-
 // ********* PRIVATE METHODS **************//
 
 /**

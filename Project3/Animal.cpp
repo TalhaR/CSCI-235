@@ -38,6 +38,9 @@ void Animal::setPredator(){ // sets Aniaml as a Predator
 }
 
 void Animal::display(){
+    // will print out the name, 
+    // domestication status and if
+    // the animal is a predator or not
     std::cout << this->getName();
     if (this->isDomestic()){
         std::cout << " is domestic";
@@ -52,6 +55,11 @@ void Animal::display(){
 }
 
 bool Animal::operator==(const Animal a) const {
+    // checks if both objects have the same name
+    // and the same status in relation to being 
+    // domesticated and being predatorial.
+    // This will ensure both are actually the same
+    // instead of two animals simply having the same name
     if (this->getName() == a.getName()
     && this->isDomestic() == a.isDomestic()
     && this->isPredator() == a.isPredator()) {

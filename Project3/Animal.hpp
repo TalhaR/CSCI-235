@@ -29,5 +29,8 @@ class Animal{
          */
         void display();
 
+        /**@param an Animal 
+         * @post returns true if both objects are of type Animal with same attributes
+         */
         bool operator==(const Animal a) const;
 };

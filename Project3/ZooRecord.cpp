@@ -9,23 +9,28 @@
 
 template<class T>
 ZooRecord<T>::ZooRecord(std::string input_file_name){
+    // creates the inputfile stream based on the path passed into function
     std::ifstream infile;
     infile.open(input_file_name);
-    
 
+    // method will only proceed if the file was found
     if(infile.good()){
         std::string name, line, s, temp;
         bool predator, domestic;
         int class_type;
-        // get rid of first line
+
+        // get rid of first line because it's not relevant
         getline(infile, temp);
 
         while(getline(infile, line)){
+            // using stringstream to process each word of an individual line
             std::stringstream s(line);
             int count = 0;
         
             while(getline(s, temp, ',')){
+                // first word is the name of the animal
                 if (count == 0) name = temp;
+                // eight input is whether the animal is a predator or not
                 if (count == 7) {
                     if (temp == "1") {
                         predator = true;
@@ -33,6 +38,7 @@ ZooRecord<T>::ZooRecord(std::string input_file_name){
                         predator = false;
                     }
                 }
+                // sixteenth input is whether the animal is domesticated
                 if (count == 15) {
                     if (temp == "1"){
                         domestic = true;
@@ -40,30 +46,11 @@ ZooRecord<T>::ZooRecord(std::string input_file_name){
                         domestic = false;
                     }
                 }
-                if (count == 17){
-                    if (temp == "1") {
-                        class_type = 1;
-                    } if (temp == "2") {
-                        class_type = 2;
-                    } else if (temp == "4") {
-                        class_type = 4;
-                    } else {
-                        class_type = 3;
-                    }
-                }
                 count++;
             }
-            switch (class_type){
-                case 1 :
-                this->add(Mammal(name, domestic, predator));
-                break;
-                case 2 :
-                this->add(Bird(name, domestic, predator));
-                case 4 :
-                this->add(Fish(name, domestic, predator));
-                default :
-                this->add(Animal(name, domestic, predator));
-            }
+            // creates an object and adds to the ZooRecord
+            // based on the information gathered from the CSV.file
+            this->add(T(name, domestic, predator));
         }
     } else {
         std::cout << "Cannot open file\n";
@@ -86,55 +73,3 @@ void ZooRecord<T>::display() {
         this->items_[i].display();
     }
 }
-
-
-//  if(infile.good()){
-//         std::string name;
-//         bool hair,feathers,eggs,milk,airborne,aquatic,predator,toothed,backbone,breathes,venomous,fins,tail,domestic,catsize;
-//         int legs, class_type;
-//         while(infile.good()){
-//             scanf("%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", 
-//             hair,feathers,eggs,milk,airborne,aquatic,predator,toothed,backbone
-//             ,breathes,venomous,fins,legs,tail,domestic,catsize,class_type);
-
-//             switch (class_type){
-//                 //case 1 :
-
-//             }
-//         }
-//     } else {
-//         std::cout << "Cannot open file\n";
-//     }
-
-// template<class T>
-// ZooRecord<T>::ZooRecord(std::string input_file_name){
-//     std::ifstream infile;
-//     infile.open(input_file_name);
-    
-
-//     if(infile.good()){
-//         std::string name;
-//         bool hair,feathers,eggs,milk,airborne,aquatic,predator,toothed,backbone,breathes,venomous,fins,tail,domestic,catsize;
-//         int legs, class_type;
-//         getline(infile, name);
-
-//         while(infile >> name >> hair >> feathers >> eggs >> milk >> airborne >> aquatic
-//         >> predator >> toothed >> backbone >> breathes >> venomous >> fins >> legs
-//         >> tail >> domestic >> catsize >> class_type){
-//             switch (class_type){
-//                 case 1 :
-//                 this->add(Mammal(name, domestic, predator));
-//                 break;
-//                 case 2 :
-//                 this->add(Bird(name, domestic, predator));
-//                 case 4 :
-//                 this->add(Fish(name, domestic, predator));
-//                 default :
-//                 this->add(Animal(name, domestic, predator));
-//             }
-//         }
-//     } else {
-//         std::cout << "Cannot open file\n";
-//     }
-//     infile.close();
-// }
