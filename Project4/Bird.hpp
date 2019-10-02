@@ -7,19 +7,21 @@
 #include "Animal.hpp"
 
 class Bird : public Animal {
-    private:
-        // setting these to false to make sure no problems if 'isAirborne' or 'isAquatic'
-        // is called. 
-        bool airborne_ = false, aquatic_ = false;
-    public:
-        Bird() = default;
-        Bird(std::string name, bool domestic = false, bool predator = false);
-        
-        // accessor functions
-        bool isAirborne() const;
-        bool isAquatic() const;
+private:
+    // setting these to false to make sure no problems if 'isAirborne' or 'isAquatic'
+    // is called. 
+    bool airborne_ = false, aquatic_ = false;
+public:
+    Bird() = default;
+    Bird(std::string name, bool domestic = false, bool predator = false);
+    
+    // accessor functions
+    bool isAirborne() const;
+    bool isAquatic() const;
 
-        // mutator functions
-        void setAirborne();
-        void setAquatic();
+    // mutator functions
+    void setAirborne();
+    void setAquatic();
+
+    void display() override;
 };

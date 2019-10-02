@@ -27,7 +27,7 @@ public:
     /**@post displays animal data in the form:
      * "animal_name is [not] domestic and [it is / is not] a predator\n"
      */
-    void display();
+    virtual void display();
 
     /**@param an Animal 
      * @post returns true if both objects are of type Animal with same attributes

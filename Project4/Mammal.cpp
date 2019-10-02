@@ -54,3 +54,7 @@ void Mammal::setTail(){
 void Mammal::setLegs(int legs){
     legs_ = legs;
 }
+
+void Mammal::display() {
+    // TO DO
+}
