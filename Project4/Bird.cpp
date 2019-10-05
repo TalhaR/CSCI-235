@@ -46,8 +46,8 @@ void Bird::display() {
     }
     std::cout << " and it is ";
     if (this->isAquatic()){
-        std::cout << "aquatic,\n\n";
+        std::cout << "aquatic.\n\n";
     } else {
-        std::cout << "not aquatic,\n\n";
+        std::cout << "not aquatic.\n\n";
     }
 }
