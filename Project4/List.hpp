@@ -1,4 +1,3 @@
-//
 //  List.hpp
 //  List
 //  A doubly-liked list implementation for class project CSci 235 Software Design and Analysis II
@@ -17,7 +16,6 @@
 template<class T>
 class List
 {
-    
 public:
     List(); // constructor
     List(const List<T>& a_list); // copy constructor
@@ -28,7 +26,6 @@ public:
     
     /**@return the number of items in the list - item_count_ */
     size_t getLength() const;
-    
     
     /**
      @param position indicating point of insertion
@@ -51,8 +48,6 @@ public:
     
     /**@post the list is empty and item_count_ == 0*/
     void clear();
-   
-    
     
 protected:
     Node<T>* first_;      // Pointer to first node
@@ -66,8 +61,3 @@ protected:
 
 #include "List.cpp"
 #endif // LIST_H_
-
-
-
-
-

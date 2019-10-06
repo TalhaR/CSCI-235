@@ -1,8 +1,8 @@
 // Name: Talha Rahman
 // Course: CSCI-235     Professor Ligorio
-// Project 3
+// Project 4
 
-// This is the header file for the Animal Class
+// This is the header file for the abstract Animal Class
 #pragma once
 #include <string>
 
@@ -24,13 +24,6 @@ public:
     void setDomestic();
     void setPredator();  
 
-    /**@post displays animal data in the form:
-     * "animal_name is [not] domestic and [it is / is not] a predator\n"
-     */
-    virtual void display();
-
-    /**@param an Animal 
-     * @post returns true if both objects are of type Animal with same attributes
-     */
-    bool operator==(const Animal a) const;
+    // pure virtual function which subclasses will override to display properly
+    virtual void display() = 0;
 };

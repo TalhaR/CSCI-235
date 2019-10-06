@@ -15,12 +15,20 @@ private:
 public:
     Fish() = default;
     Fish(std::string name, bool domestic = false, bool predator = false);
+    Fish(bool venomous, std::string name, bool domestic = false, bool predator = false);
     
     // accessor functions
     bool isVenomous() const;
 
     // mutator functions
     void setVenomous();
-
+    /**@post prints out the animal's name, domestication
+    * and predator status. Along with if the fish is venomous or not
+    */
     void display() override;
+    
+    /**@param a Fish object
+     * @post returns true if both objects are of type Fish with same attributes
+     */
+    bool operator==(const Fish a) const;
 };

@@ -14,6 +14,7 @@ private:
 public:
     Bird() = default;
     Bird(std::string name, bool domestic = false, bool predator = false);
+    Bird(bool airborne, bool aquatic, std::string name, bool domestic = false, bool predator = false);
     
     // accessor functions
     bool isAirborne() const;
@@ -23,5 +24,14 @@ public:
     void setAirborne();
     void setAquatic();
 
+    /**@post prints out the animal's name, domestication
+     * and predator status. Along with if the Bird is
+     * airborne and/or aquatic
+     */
     void display() override;
+
+    /**@param a Bird object
+     * @post returns true if both objects are of type Bird with same attributes
+     */
+    bool operator==(const Bird a) const;
 };

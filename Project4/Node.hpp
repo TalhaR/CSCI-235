@@ -10,7 +10,6 @@
 template<class ItemType>
 class Node
 {
-
 public:
    Node(); //default constructor
    Node(const ItemType& an_item); // parameterized constructor

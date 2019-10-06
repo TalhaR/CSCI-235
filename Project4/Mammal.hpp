@@ -20,6 +20,8 @@ private:
 public:
     Mammal() = default;
     Mammal(std::string name, bool domestic = false, bool predator = false);
+    Mammal(bool hair, bool toothed, bool tail, bool fins, 
+    bool airborne, bool aquatic, int legs, std::string name, bool domestic = false, bool predator = false);
     
     // accessor functions. All have const after to indicate they're not modifying anything
     bool hasHair() const;
@@ -39,5 +41,15 @@ public:
     void setTail();
     void setLegs(int legs);
 
+    /**@post prints out the animal's name, domestication
+     * and predator status. Along with if the Mammal
+     * has features such as teeth, hair, fins, a tail
+     * and the number of legs
+     */
     void display() override;
+
+    /**@param a Mammal object
+     * @post returns true if both objects are of type Mammal with same attributes
+     */
+    bool operator==(const Mammal a) const;
 };
