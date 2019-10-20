@@ -4,7 +4,7 @@ template<class T>
 class Node {
 private:
     T item;
-    T* nextNode;
+    Node<T>* nextNode;
 
 public:
     Node() = default;
@@ -16,7 +16,7 @@ public:
     void setItem(T item);
 
     // accessors
-    T* getNext() const;
+    Node<T>* getNext() const;
     T getItem() const;
 
 };
@@ -25,7 +25,7 @@ template<class T>
 Node<T>::Node(T item) : item(item), nextNode(nullptr) {}
 
 template<class T>
-void Node<T>::setNext(Node* nextNode) {
+void Node<T>::setNext(Node<T>* nextNode) {
     this->nextNode = nextNode;
 }
 
@@ -35,11 +35,11 @@ void Node<T>::setItem(T item) {
 }
 
 template<class T>
-T* Node<T>::getNext() const {
-    return this->nextNode();
+Node<T>* Node<T>::getNext() const {
+    return this->nextNode;
 }
 
 template<class T>
 T Node<T>::getItem() const {
-    return this->item();
+    return this->item;
 }
