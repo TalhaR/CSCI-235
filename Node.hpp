@@ -8,8 +8,8 @@ private:
 
 public:
     Node() = default;
-    Node(T item);
-    Node(const Node& otherNode);
+    Node(T& item);
+    Node(const Node<T>& otherNode);
 
     // mutators
     void setNext(Node* nextNode);
@@ -18,11 +18,10 @@ public:
     // accessors
     Node<T>* getNext() const;
     T getItem() const;
-
 };
 
 template<class T>
-Node<T>::Node(T item) : item(item), nextNode(nullptr) {}
+Node<T>::Node(T& item) : item(item), nextNode(nullptr) {}
 
 template<class T>
 void Node<T>::setNext(Node<T>* nextNode) {
@@ -36,10 +35,10 @@ void Node<T>::setItem(T item) {
 
 template<class T>
 Node<T>* Node<T>::getNext() const {
-    return this->nextNode;
+    return nextNode;
 }
 
 template<class T>
 T Node<T>::getItem() const {
-    return this->item;
+    return item;
 }

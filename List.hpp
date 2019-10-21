@@ -1,7 +1,6 @@
 #pragma once
 #include "Node.hpp"
 #include "Exception.hpp"
-#include <stddef.h>
 #include <iostream>
 
 template<class T>
@@ -12,7 +11,7 @@ private:
 public:
     List();
     List(const List<T>& list);
-    //~List();
+    ~List();
 
     // mutators
     void add(T item);
@@ -29,8 +28,13 @@ template<class T>
 List<T>::List() : head(nullptr) {}
 
 template<class T>
-List<T>::List(const List& list){
+List<T>::List(const List<T>& list){
 
+}
+
+template<class T>
+List<T>::~List() {
+    clear();
 }
 
 template<class T>
@@ -39,11 +43,11 @@ void List<T>::add(T item) {
     tempPtr->setNext(head);
 
     head = tempPtr;
-    this->item_count++;
+    item_count++;
 }
 
 template<class T>
-void List<T>::remove(size_t position){
+void List<T>::remove(size_t position) {
     if(position >= item_count) return;
 
     Node<T>* tempPtr;
@@ -56,9 +60,25 @@ void List<T>::remove(size_t position){
     tempPtr = current->getNext()->getNext();
     
     delete current->getNext();
-    current->getNext() = nullptr;
+    current->getNext()->setNext(nullptr);
 
     current->setNext(tempPtr);
+    item_count--;
+}
+
+template<class T>
+void List<T>::clear() {
+    if(item_count == 0) return;
+
+    Node<T>* tempPtr;
+
+    while(tempPtr != nullptr) {
+        tempPtr = head->getNext();
+        delete head;
+
+        head = tempPtr;
+    }
+    item_count = 0;
 }
 
 template<class T>
@@ -78,10 +98,10 @@ T List<T>::getItem(size_t position) const {
 
 template<class T>
 size_t List<T>::getLength() const {
-    return this->item_count;
+    return item_count;
 }
 
 template<class T>
 bool List<T>::isEmpty() const {
-    return this->getLength() == 0;
+    return item_count == 0;
 }
