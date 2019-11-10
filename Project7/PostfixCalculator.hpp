@@ -3,9 +3,12 @@
 #include <string>
 #include <stack>
 #include <fstream>
+#include <iostream>
+#include <cctype>
 
 class PostfixCalculator {
 private:
+    std::stack<int> operatorStack;
 
 public:
     PostfixCalculator() = default;
