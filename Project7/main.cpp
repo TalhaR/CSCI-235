@@ -3,12 +3,8 @@
 int main() {
     std::stack<int> s;
     
-    s.push(1);
-    s.push(2);
-    s.push(3);
+    PostfixCalculator pfc;
     
-    std::cout << s.top() << "\n"; s.pop();
-    std::cout << s.top() << "\n";
-    std::cout << s.top() << "\n";
+    pfc.testCalculator("input.txt");
         
 }

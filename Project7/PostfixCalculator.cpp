@@ -3,8 +3,24 @@
 std::string PostfixCalculator::convertToPostfix(std::string infix_expression) {
     std::string postfixString = "";
     
-    for (char c : infix_expression) {
-        //if (isdigit(c))
+    for (char& c : infix_expression) {
+        if (isdigit(c)) {
+            numberStack.push(c);
+            
+            postfixString += c;
+            postfixString += " ";
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            operatorStack.push(c);
+        } else if (c == '(' || c == ')') {
+            // TODO
+        } else if (!isspace(c)){
+            return PrecondViolatedExcep("Unknown operator").what();
+        }
+    }
+    
+    for(int i = 0; i < operatorStack.size(); i++) {
+        postfixString += operatorStack.top();
+        operatorStack.pop();
     }
     
     return postfixString;
@@ -12,6 +28,7 @@ std::string PostfixCalculator::convertToPostfix(std::string infix_expression) {
 
 double PostfixCalculator::calculatePostfix(std::string postfix_expression) {
     
+    return -1;
 }
 
 void PostfixCalculator::testCalculator(std::string input_file_name) {
