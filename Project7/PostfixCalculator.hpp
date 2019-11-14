@@ -5,11 +5,14 @@
 #include <fstream>
 #include <iostream>
 #include <cctype>
+#include <sstream>
 
 class PostfixCalculator {
 private:
-    std::stack<int> numberStack;
+    std::stack<std::string> postfixStack;
     std::stack<char> operatorStack;
+    
+    int precedence(char c);
 
 public:
     PostfixCalculator() = default;
@@ -19,6 +22,7 @@ public:
      * @return a string that contains a postfix expression
      */
     std::string convertToPostfix(std::string infix_expression);
+
     /**
      * @param postfix_expression a string that contains a postfix expression 
      * @return the evaluation of that postfix expression
